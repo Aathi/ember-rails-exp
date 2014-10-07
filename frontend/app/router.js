@@ -9,6 +9,7 @@ Router.map(function() {
 	this.resource('speakers', function() {
 		this.resource('speakers-index', {path: '/'});
 		this.resource('speaker', {path: ':speaker_id'});
+		this.route('new', {path: '/new'});
 	});
 	this.route('about');
 });
