@@ -1,0 +1,11 @@
+{{input type="checkbox" checked=isEditing}} Edit?<br>
+{{#unless isEditing}}
+	{{name}}<br>
+	{{#each presentations}}
+		- {{title}} <br>
+	{{/each}}
+{{else}}
+	{{input type="text" value=name}}<br>
+	<button {{action 'save'}}>save</button>
+	<button {{action 'delete'}}>delete</button>
+{{/unless}}

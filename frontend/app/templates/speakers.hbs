@@ -1,0 +1,8 @@
+Speakers<br>
+{{#each content}}
+	{{id}}
+	{{#link-to 'speaker' this}}
+		{{name}}
+	{{/link-to}}<br>
+{{/each}}<br>
+{{outlet}}

@@ -1,0 +1,7 @@
+*~
+*.swp
+*.swo
+database/
+backend/node_modules/
+backend/devdb.sqlite3
+frontend/node_modules/
