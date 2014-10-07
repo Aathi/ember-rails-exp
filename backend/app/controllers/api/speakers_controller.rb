@@ -5,4 +5,9 @@ class Api::SpeakersController < ApplicationController
 	def show
 		render json: Speaker.find(params[:id])
 	end
+	def destroy
+		speaker = Speaker.find(params[:id])
+		speaker.destroy
+		head 204
+	end
 end
