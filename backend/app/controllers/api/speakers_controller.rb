@@ -13,14 +13,15 @@ class Api::SpeakersController < ApplicationController
 	def create
 		speaker = Speaker.new(speaker_params)
 		if speaker.save
-			render json: speaker, status: 201, location: speaker
+			render json: speaker, status: 201
 		else
 			render json: speaker.errors, status: 422
 		end
 	end
 
 	private
-		def speaker_params
-			params.require(:speaker).permit(:name)
-		end
+	def speaker_params
+		params.require(:speaker).permit(:name)
+	end
+
 end
