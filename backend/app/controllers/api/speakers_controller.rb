@@ -3,23 +3,33 @@ class Api::SpeakersController < ApplicationController
 		render json: Speaker.all
 	end
 	def show
-		render json: Speaker.find(params[:id])
+		render json: speaker
 	end
 	def destroy
-		speaker = Speaker.find(params[:id])
 		speaker.destroy
 		head 204
 	end
 	def create
-		speaker = Speaker.new(speaker_params)
-		if speaker.save
-			render json: speaker, status: 201
+		new_speaker = Speaker.new(speaker_params)
+		if new_speaker.save
+			render json: new_speaker, status: 201
 		else
-			render json: speaker.errors, status: 422
+			render json: new_speaker.errors, status: 422
+		end
+	end
+	def update
+		new_speaker = speaker.update_attributes(speaker_params)
+		if new_speaker
+			render json: new_speaker
+		else
+			render json: "no content", status: 204
 		end
 	end
 
 	private
+	def speaker
+		Speaker.find(params[:id])
+	end
 	def speaker_params
 		params.require(:speaker).permit(:name)
 	end
